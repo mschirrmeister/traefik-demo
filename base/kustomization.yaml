@@ -2,14 +2,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: rancher-demo
 resources:
-- configs/source-vars.yaml
+- source-vars.yaml
 - namespace.yaml
 - deployment.yaml
 - service.yaml
 - ingress.yaml
 configMapGenerator:
 - name: rancher-demo-config
-  env: configs/env.txt
+  env: env.txt
 images:
 - name: monachus/rancher-demo
   newName: monachus/rancher-demo
