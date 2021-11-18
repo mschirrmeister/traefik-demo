@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: source-vars
 data:
-  MY_NAMESPACE: rancher-demo
-  URL_HOST: rancher-demo.home.monach.us
+  MY_NAMESPACE: traefik-demo
+  URL_HOST: traefik-demo.127.0.0.1.sslip.io

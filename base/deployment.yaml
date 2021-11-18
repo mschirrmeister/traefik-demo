@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rancher-demo
+  name: traefik-demo
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app.kubernetes.io/name: rancher-demo
+      app.kubernetes.io/name: traefik-demo
   template:
     spec:
       containers:
-      - image: monachus/rancher-demo:latest
-        name: rancher-demo
+      - image: monachus/traefik-demo:latest
+        name: traefik-demo
         envFrom:
         - configMapRef:
-            name: rancher-demo-config
+            name: traefik-demo-config

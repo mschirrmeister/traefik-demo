@@ -33,7 +33,7 @@ type (
 		Metadata        string
 		SkipErrors      bool
 		ShowVersion     bool
-		CowColor        string
+		IconColor        string
 		RemoveInterval  string
 	}
 
@@ -42,7 +42,7 @@ type (
 		Version   string `json:"version"`
 		Metadata  string `json:"metadata,omitempty"`
 		RequestID string `json:"request_id,omitempty"`
-		CowColor  string `json:"cowColor"`
+		IconColor  string `json:"iconColor"`
 	}
 
 	Info struct {
@@ -113,7 +113,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 	title := os.Getenv("TITLE")
 	if title == "" {
-		title = "Rancher Demo"
+		title = "Traefik Demo"
 	}
 
 	hostname := getHostname()
@@ -220,16 +220,16 @@ func ping(w http.ResponseWriter, r *http.Request) {
 
 	hostname := getHostname()
 
-	cowColor := os.Getenv("COW_COLOR")
-	if cowColor == "" {
-		cowColor = "black"
+	iconColor := os.Getenv("ICON_COLOR")
+	if iconColor == "" {
+		iconColor = "yellow"
 	}
 
 	p := Ping{
 		Instance: hostname,
 		Version:  getVersion(),
 		Metadata: getMetadata(),
-		CowColor: cowColor,
+		IconColor: iconColor,
 	}
 
 	requestID := r.Header.Get("X-Request-Id")
@@ -270,8 +270,8 @@ func counter(h http.Handler) http.Handler {
 
 func main() {
 	app := cli.NewApp()
-	app.Name = "rancher-demo"
-	app.Usage = "rancher demo application"
+	app.Name = "traefik-demo"
+	app.Usage = "Traefik Demo application"
 	app.Version = "1.4.1"
 	app.Author = "@oskapt"
 	app.Email = ""

@@ -1,9 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: rancher-demo
+  name: traefik-demo
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
 spec:
   rules:
   - host: $(URL_HOST)
@@ -13,6 +14,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: rancher-demo
-            port: 
+            name: traefik-demo
+            port:
               number: 80
