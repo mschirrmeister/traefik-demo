@@ -78,10 +78,13 @@
                                 console.log("creating instance " + instanceName);
 
                                 // create a shorter display name for the tile
-                                var displayName = instanceName.match(/.+-(\w+)$/)[1];
-                                if (displayName === null) {
+                                var displayName;
+                                try {
+                                    displayName = instanceName.match(/.+-(\w+)$/)[1];
+                                } catch(error) {
                                     displayName = instanceName;
                                 }
+
                                 var elData = '<div id="instance-' + instanceName + '" class="card container-instance"><div class="image" id="replica" style="background-color: ' + iconColor + ';"><img width="25%" height="25%" src="static/img/traefik-gopher.png"></div><div class="content centered view-computer"><div> {{ if .ShowVersion }}<div class="ui top left attached ' + color + ' label">' + data.version +'</div>{{ end }} <div id="instance-label-' + instanceName + '"class="ui top right attached green serving label">serving</div>' + displayName + '</div></div></div>';
 
                                 $("div.container-group").append(elData);
@@ -139,7 +142,7 @@
         <div class="ui two column relaxed doubling padded grid">
             <div class="six wide column meta">
                 <div class="ui container">
-                    Inspired by <a href="https://github.com/ehazlett/docker-demo" target="_blank">ehazlett/docker-demo</a>
+                    Inspired by <a href="https://github.com/ehazlett/docker-demo" target="_blank">ehazlett/docker-demo</a>. Enhanced by <a href="https://twitter.com/adriandotgoins" target="_blank">@adriandotgoins</a>.
                     <img class="logo center" src="static/img/traefiklabs-horizontal-logo-white.png"/>
 
                     <div class="row centered">
