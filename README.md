@@ -13,7 +13,7 @@ It will create a colored icon for each replica within a ReplicaSet and indicate 
 - `REMOVE_INTERVAL`: how long after `EXPIRE_INTERVAL` until we remove the icon (default: 20s)
 - `SKIP_ERRORS`: set this to prevent errors from counting (useful on janky load balancers)
 - `METADATA`: extra text at bottom of info area
-- `ICON_COLOR`: what color the graphic background should be (default: blue). Valid options are any color from the CSS pallete, including:
+- `ICON_COLOR`: what color the graphic background should be (default: yellow). Valid options are any color from the CSS pallete, including:
   - red
   - orange
   - yellow
